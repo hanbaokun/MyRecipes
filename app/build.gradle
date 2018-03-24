@@ -1,0 +1,60 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "com.henry.myrecipes"
+        minSdkVersion 19
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    //dagger2
+    implementation 'com.google.dagger:dagger:2.7'
+    compileOnly 'com.google.dagger:dagger-compiler:2.7'
+    compileOnly 'com.google.dagger:dagger-producers:2.7'
+    compileOnly 'com.google.guava:guava:21.0'
+    compileOnly 'javax.annotation:jsr250-api:1.0'
+    kapt 'com.google.dagger:dagger-compiler:2.7'
+    kapt 'com.google.dagger:dagger-producers:2.7'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.7'
+    // reactiveX
+    api 'io.reactivex.rxjava2:rxjava:2.1.5'
+    api 'io.reactivex.rxjava2:rxandroid:2.0.1@aar'
+    api 'com.jakewharton.rxbinding2:rxbinding:2.0.0'
+    // retrofit, okHttp and some tools
+    api 'com.squareup.okhttp3:okhttp:3.9.0'
+    api 'com.squareup.okio:okio:1.13.0'
+    api 'com.squareup.retrofit2:retrofit:2.3.0'
+    api 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+    api 'org.ligboy.retrofit2:converter-fastjson-android:2.1.0'
+    api 'com.squareup.okhttp3:logging-interceptor:3.9.0'
+    api 'com.squareup.wire:wire-runtime:2.1.2'
+    // logger
+    api 'com.orhanobut:logger:2.1.1'
+    implementation 'com.android.support:recyclerview-v7:26.1.0'
+    implementation 'com.google.code.gson:gson:2.8.1'
+}
